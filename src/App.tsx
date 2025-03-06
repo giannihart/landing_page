@@ -4,7 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import Hero from './components/hero/Hero';
 import Features from './components/features/Features';
 import FeatureComparison from './components/FeatureCompare/FeatureComparison';
-import Pricing from './components/pricing/Pricing';
+// import Pricing from './components/pricing/Pricing';
 import Footer from './components/footer/Footer';
 import ImageCompare from './components/image-compare/ImageCompare';
 
