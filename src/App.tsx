@@ -23,7 +23,7 @@ function App() {
       />
       <Features />
       <FeatureComparison />
-      <Pricing />
+      {/* <Pricing /> */}
       <Footer />
     </div>
   );
