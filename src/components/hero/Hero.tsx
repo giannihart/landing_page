@@ -15,7 +15,7 @@ const Hero = () => {
     }, 2500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [rotatingWords.length]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
