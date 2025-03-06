@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import ImageCompare from '../image-compare/ImageCompare';
 
 const Hero = () => {
   const [email, setEmail] = useState('');
