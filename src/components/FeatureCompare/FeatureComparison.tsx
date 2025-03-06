@@ -2,60 +2,60 @@ import React from 'react';
 
 const features = [
   {
-    name: 'AI-Powered Documentation',
+    name: 'Documentation Generation',
     devscribe: true,
-    swagger: false,
-    postman: false,
-    readme: false,
+    Mintlify: false,
+    Scalar: false,
+    ReDoc: false,
   },
   {
-    name: 'Real-time API Testing',
+    name: 'Text Editing',
     devscribe: true,
-    swagger: false,
-    postman: true,
-    readme: false,
+    Mintlify: true,
+    Scalar: false,
+    ReDoc: false,
   },
   {
-    name: 'Custom Branding',
+    name: 'API Testing Playground',
     devscribe: true,
-    swagger: false,
-    postman: false,
-    readme: false,
+    Mintlify: true,
+    Scalar: true,
+    ReDoc: false,
   },
   {
-    name: 'Team Collaboration',
+    name: 'Custom Themes',
     devscribe: true,
-    swagger: false,
-    postman: true,
-    readme: false,
+    Mintlify: false,
+    Scalar: false,
+    ReDoc: true,
   },
   {
-    name: 'Version Control',
+    name: 'Github Repo Integration',
     devscribe: true,
-    swagger: false,
-    postman: true,
-    readme: true,
+    Mintlify: true,
+    Scalar: false,
+    ReDoc: true,
   },
   {
-    name: 'API Analytics',
+    name: 'Chat Assist Search',
     devscribe: true,
-    swagger: false,
-    postman: true,
-    readme: false,
+    Mintlify: true,
+    Scalar: false,
+    ReDoc: false,
   },
   {
-    name: 'Multiple API Support',
+    name: 'Example Code Snippets',
     devscribe: true,
-    swagger: true,
-    postman: true,
-    readme: true,
+    Mintlify: true,
+    Scalar: true,
+    ReDoc: true,
   },
   {
-    name: 'Interactive Documentation',
+    name: 'Toggle Reading Styles',
     devscribe: true,
-    swagger: true,
-    postman: false,
-    readme: false,
+    Mintlify: false,
+    Scalar: false,
+    ReDoc: false,
   },
 ];
 
@@ -73,7 +73,7 @@ const FeatureComparison = () => {
             Compare with the Competition
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
-            See how Devscribe stands out from other API documentation tools
+            See how Devscribe stands out from other API documentation platforms
           </p>
         </div>
 
@@ -83,9 +83,9 @@ const FeatureComparison = () => {
               <tr className="border-b border-border">
                 <th className="py-4 px-6 text-left text-foreground font-semibold">Features</th>
                 <th className="py-4 px-6 text-center text-foreground font-semibold">Devscribe</th>
-                <th className="py-4 px-6 text-center text-foreground font-semibold">Swagger</th>
-                <th className="py-4 px-6 text-center text-foreground font-semibold">Postman</th>
-                <th className="py-4 px-6 text-center text-foreground font-semibold">ReadMe</th>
+                <th className="py-4 px-6 text-center text-foreground font-semibold">Mintlify</th>
+                <th className="py-4 px-6 text-center text-foreground font-semibold">Scalar</th>
+                <th className="py-4 px-6 text-center text-foreground font-semibold">ReDoc</th>
               </tr>
             </thead>
             <tbody>
@@ -98,15 +98,15 @@ const FeatureComparison = () => {
                 >
                   <td className="py-4 px-6 text-foreground">{feature.name}</td>
                   <td className="py-4 px-6 text-center">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-600">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
                   </td>
                   <td className="py-4 px-6 text-center">
-                    {feature.swagger ? (
-                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary">
+                    {feature.Mintlify ? (
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-600">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -120,8 +120,8 @@ const FeatureComparison = () => {
                     )}
                   </td>
                   <td className="py-4 px-6 text-center">
-                    {feature.postman ? (
-                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary">
+                    {feature.Scalar ? (
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-600">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -135,8 +135,8 @@ const FeatureComparison = () => {
                     )}
                   </td>
                   <td className="py-4 px-6 text-center">
-                    {feature.readme ? (
-                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary">
+                    {feature.ReDoc ? (
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-600">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>

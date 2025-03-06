@@ -1,52 +1,100 @@
-import React, { useState } from 'react';
-import ProductImage from '../../lib/Product.png';
-
-const images = [
-  { id: 1, src: ProductImage, alt: 'Generate Documentation' },
-  { id: 2, src: ProductImage, alt: 'Text Editor' },
-  { id: 3, src: ProductImage, alt: 'API Testing Playground' },
-  { id: 4, src: ProductImage, alt: 'Custom Themes' },
-];
+import React, { useState, useEffect } from 'react';
+import confetti from 'canvas-confetti';
+import ImageCompare from '../image-compare/ImageCompare';
 
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('');
-  const [currentImage, setCurrentImage] = useState(1);
-  const [expandedButton, setExpandedButton] = useState<number | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const rotatingWords = ['generate', 'test', 'perfect', 'manage'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Confetti effect with a mix of vibrant colors, including more yellow tones
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: [
+        '#26ccff', // bright blue
+        '#a25afd', // purple
+        '#ff5e7e', // coral pink
+        '#88ff5a', // lime green
+        '#fcff42', // bright yellow
+        '#ff4f81', // hot pink
+        '#42f4ff',  // cyan
+        '#ffd700',  // golden yellow
+        '#ffff00',  // pure yellow
+        '#ffe135'   // banana yellow
+      ]
+    });
+
     // Here you would typically integrate with your email service
     setStatus('Thanks for signing up!');
     setEmail('');
   };
 
-  const handleButtonClick = (id: number) => {
-    setCurrentImage(id);
-    setExpandedButton(expandedButton === id ? null : id);
-  };
-
   return (
-    <div className="relative overflow-hidden bg-background pt-16">
+    <div className="relative overflow-hidden bg-background pt-16 pb-16 md:pt-32 md:pb-20">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background to-background" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto pt-20 pb-24 px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl tracking-tight font-extrabold text-foreground sm:text-5xl md:text-6xl">
-            <span className="block">Instantly Generate, Test,</span>
-            <span className="block text-primary">and Perfect Your API Docs</span>
+          {/* Announcement Banner */}
+          <div className="mb-4 inline-flex items-center bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
+            <span className="mr-2">📣</span>
+            <span>Version 1.0 will be live 4/26</span>
+          </div>
+
+          <h1 className="text-5xl tracking-tight font-extrabold text-foreground sm:text-6xl md:text-7xl leading-tight text-center">
+            <span className="block mb-2 relative">
+              <span>Instantly</span>
+              <span className="relative inline-block overflow-visible align-bottom ml-4" style={{ minWidth: '300px', height: '120px', verticalAlign: 'bottom', position: 'relative' }}>
+                {rotatingWords.map((word, index) => (
+                  <span
+                    key={word}
+                    className={`text-primary absolute left-0 w-full text-left`}
+                    style={{
+                      transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                      transform: `translateY(${((index - currentIndex + rotatingWords.length) % rotatingWords.length) * 25}%)`,
+                      opacity: index === currentIndex ? 1 : 0,
+                      willChange: 'transform, opacity',
+                      bottom: '5px',
+                      position: 'absolute',
+                      left: '0',
+                      right: '0',
+                      overflow: 'visible'
+                    }}
+                  >
+                    {word}
+                  </span>
+                ))}
+              </span>
+            </span>
+            <span className="block">
+              your API docs all in one place
+            </span>
           </h1>
-          <p className="mt-3 max-w-md mx-auto text-base text-muted-foreground sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            Devscribe simplifies API documentation by allowing you to generate, test, and style beautiful API docs—all in one place, with themes that match your company's brand.
+          <p className="mt-6 max-w-3xl mx-auto text-xl text-muted-foreground sm:text-2xl md:text-2xl leading-relaxed">
+            Devscribe boosts your team's efficiency by automating and managing your API documentation with ease.
           </p>
           
           {/* Email Signup Form */}
-          <div className="mt-8 max-w-md mx-auto">
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="mt-12 max-w-xl mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="flex-1">
                 <input
                   type="email"
@@ -54,90 +102,23 @@ const Hero = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="w-full px-6 py-2 rounded-lg bg-secondary text-secondary-foreground border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 hover:outline hover:outline-2 hover:outline-white"
+                  className="w-full px-6 py-3 rounded-lg bg-secondary text-secondary-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300 hover:outline hover:outline-2 hover:outline-white text-lg"
                 />
               </div>
               <div className="rainbow-button">
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 whitespace-nowrap"
+                  className="px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 whitespace-nowrap text-lg font-semibold"
                 >
                   Get updates
                 </button>
               </div>
             </form>
             {status && (
-              <p className="mt-3 text-sm text-primary animate-fade-in">
+              <p className="mt-4 text-base text-primary animate-fade-in">
                 {status}
               </p>
             )}
-          </div>
-        </div>
-
-        {/* Animated Element */}
-        <div className="mt-16">
-          <div className="relative mx-auto w-full max-w-4xl">
-            <div className="rounded-xl shadow-2xl overflow-hidden border border-border bg-card">
-              <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
-                {/* Content */}
-                <div className="absolute inset-0">
-                  <img
-                    src={images[currentImage - 1].src}
-                    alt={images[currentImage - 1].alt}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Image Toggle Icons */}
-            <div className="mt-6 flex justify-center gap-4">
-              {images.map((image) => (
-                <div key={image.id} className="relative">
-                  <button
-                    onClick={() => handleButtonClick(image.id)}
-                    className={`
-                      flex items-center overflow-hidden transition-all duration-700 ease-out transform-gpu 
-                      ${currentImage === image.id
-                        ? 'bg-primary text-primary-foreground shadow-[0_0_15px_rgba(var(--primary),0.3)]'
-                        : 'bg-secondary text-secondary-foreground hover:bg-primary/80 hover:text-primary-foreground hover:shadow-[0_0_15px_rgba(var(--primary),0.3)]'
-                      }
-                      rounded-lg w-12 ${expandedButton === image.id ? 'w-auto' : 'w-12'} 
-                      h-12 relative z-10
-                      hover:translate-y-[-5px] hover:scale-110 
-                      transition-transform duration-300 ease-out
-                    `}
-                  >
-                    <div className="flex items-center justify-center w-12 flex-shrink-0">
-                      {image.id === 1 && (
-                        <svg className="w-6 h-6 transition-transform duration-700 ease-out transform-gpu" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5h16M4 10h16M4 15h12M4 20h8" />
-                        </svg>
-                      )}
-                      {image.id === 2 && (
-                        <svg className="w-6 h-6 transition-transform duration-700 ease-out transform-gpu" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                        </svg>
-                      )}
-                      {image.id === 3 && (
-                        <svg className="w-6 h-6 transition-transform duration-700 ease-out transform-gpu" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4h16M4 4v8M20 4v8M7 12v4M17 12v4M7 16h10M12 16v4" />
-                        </svg>
-                      )}
-                      {image.id === 4 && (
-                        <svg className="w-6 h-6 transition-transform duration-700 ease-out transform-gpu" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                      )}
-                    </div>
-                    <span className={`
-                      text-sm font-medium whitespace-nowrap px-4 
-                      ${expandedButton === image.id ? 'opacity-100' : 'opacity-0'}
-                    `}>{image.alt}</span>
-                  </button>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

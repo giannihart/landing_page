@@ -21,7 +21,7 @@ const features = [
   },
   {
     title: 'API Testing Playground',
-    description: 'Streamline your processes with intelligent automation and custom workflows.',
+    description: 'Test every API before using it on your production enviornment.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4h16M4 4v8M20 4v8M7 12v4M17 12v4M7 16h10M12 16v4" />
@@ -39,7 +39,7 @@ const features = [
   },
   {
     title: 'Github Repo Integration',
-    description: 'Enterprise-grade security to keep your data safe and compliant with regulations.',
+    description: 'Connext your devscribe docs directly to your Github repo.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -57,7 +57,7 @@ const features = [
   },
   {
     title: 'Example Code Snippets',
-    description: 'Stay informed with intelligent alerts and customizable notification preferences.',
+    description: 'See what the code snippets will look like before you test them.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -66,7 +66,7 @@ const features = [
   },
   {
     title: 'Toggle Reading Styles',
-    description: 'Leverage AI-powered insights to make data-driven business decisions.',
+    description: 'Toggle between views of the docs depending on how technical you are.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m-4 6H4m0 0l4 4m-4-4l4-4" />
@@ -77,7 +77,7 @@ const features = [
 
 const Features = () => {
   return (
-    <div className="relative py-24 bg-background" id="features">
+    <div className="relative py-20 md:py-32 bg-background" id="features">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />

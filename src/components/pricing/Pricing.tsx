@@ -42,10 +42,12 @@ const plans: Plan[] = [
     description: 'Perfect for getting started',
     features: [
       'Single user',
-      'Basic analytics',
-      '2GB storage',
-      'Email support',
-      'Basic integrations',
+      'Custom domain',
+      'Text editor',
+      'Github integration',
+      'API testing playground',
+      'Basic themes',
+      'Example code snippets',
     ],
     cta: 'Get Started Free',
     popular: false,
@@ -61,11 +63,11 @@ const plans: Plan[] = [
     ],
     description: 'Great for small teams and startups',
     features: [
+      'Everything in Personal +',
+      'Documentation generation',
+      'Custom Branding',
+      'Chat assist search',
       'Basic analytics',
-      '10GB storage',
-      'Email support',
-      'Basic integrations',
-      'API access',
     ],
     cta: 'Start with Startup',
     popular: false,
@@ -81,29 +83,29 @@ const plans: Plan[] = [
     ],
     description: 'Ideal for growing businesses',
     features: [
-      'Advanced analytics',
-      '50GB storage',
+      'Everything in Startup +',
+      'Removed Devscribed branding',
       'Priority email & chat support',
-      'Advanced integrations',
-      'Custom workflows',
-      'Team collaboration',
+      'Increased chat assist credits',
+      'Advanced analytics',
     ],
     cta: 'Go Professional',
     popular: true,
   },
   {
     name: 'Enterprise',
-    monthlyPrice: 'Custom',
-    yearlyPrice: 'Custom',
+    monthlyPrice: 'Custom Pricing',
+    yearlyPrice: 'Custom Pricing',
     description: 'For large organizations',
     features: [
+      'Everything in Professional +',
       'Unlimited team members',
+      'End user authentication',
       'Custom analytics',
-      'Unlimited storage',
       '24/7 phone & chat support',
       'Enterprise integrations',
-      'Custom development',
       'Dedicated account manager',
+      'SSO Login',
       'SLA guarantees',
     ],
     cta: 'Contact Sales',
@@ -179,7 +181,7 @@ const Pricing = () => {
               key={index}
               className={`relative flex flex-col rounded-xl backdrop-blur-sm border ${
                 plan.popular
-                  ? 'bg-primary/10 border-primary shadow-[0_0_15px_rgba(var(--primary),0.3)] scale-105 z-10'
+                  ? 'bg-primary/10 border-primary shadow-[0_0_15px_rgba(var(--primary),0.3)] z-10'
                   : 'bg-card/50 border-border'
               } p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(var(--primary),0.2)]`}
             >
@@ -201,7 +203,7 @@ const Pricing = () => {
                     {getPrice(plan)}
                   </span>
                   <span className={`ml-1 ${plan.name === 'Enterprise' ? 'text-3xl text-foreground font-extrabold' : 'text-xl text-muted-foreground font-semibold'}`}>
-                    {plan.name === 'Enterprise' ? ' Pricing' : '/month'}
+                    {plan.name === 'Enterprise' ? '' : '/month'}
                   </span>
                 </p>
                 
