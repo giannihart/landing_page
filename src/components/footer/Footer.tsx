@@ -25,13 +25,13 @@ const Footer = () => {
           <div className="md:mt-0">
             <ul className="flex flex-wrap gap-6 justify-center md:justify-end">
               <li>
-                <a href="#features" className="text-base text-muted-foreground hover:text-foreground transition-colors">
-                  Features
+                <a href="#product" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                  Product
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-base text-muted-foreground hover:text-foreground transition-colors">
-                  Pricing
+                <a href="#features" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                  Features
                 </a>
               </li>
               <li>
