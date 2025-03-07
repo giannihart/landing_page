@@ -7,6 +7,7 @@ import FeatureComparison from './components/FeatureCompare/FeatureComparison';
 // import Pricing from './components/pricing/Pricing';
 import Footer from './components/footer/Footer';
 import ImageCompare from './components/image-compare/ImageCompare';
+import SupportSection from './components/Collaboration /SupportSection';
 
 // Import placeholder images
 import BeforeImage from './lib/BeforeImage.png';
@@ -24,6 +25,7 @@ function App() {
       <Features />
       <FeatureComparison />
       {/* <Pricing /> */}
+      <SupportSection />
       <Footer />
     </div>
   );

@@ -43,25 +43,25 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-background pt-16 pb-16 md:pt-32 md:pb-20">
+    <div className="relative overflow-hidden bg-background pt-24 pb-16 md:pt-32 md:pb-20">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background to-background" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Announcement Banner */}
-          <div className="mb-4 inline-flex items-center bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
+          <div className="mb-8 md:mb-4 inline-flex items-center bg-primary/10 border border-primary/20 rounded-full px-6 py-2 text-sm font-medium text-primary">
             <span className="mr-2">📣</span>
             <span>Version 1.0 will be live 4/26</span>
           </div>
 
-          <h1 className="text-5xl tracking-tight font-extrabold text-foreground sm:text-6xl md:text-7xl leading-tight text-center">
-            <span className="block mb-2 relative">
+          <h1 className="text-4xl tracking-tight font-extrabold text-foreground sm:text-6xl md:text-7xl leading-tight text-center">
+            <span className="block mb-3 md:mb-2 relative">
               <span>Instantly</span>
-              <span className="relative inline-block overflow-visible align-bottom ml-4" style={{ minWidth: '300px', height: '120px', verticalAlign: 'bottom', position: 'relative' }}>
+              <span className="relative inline-block overflow-visible align-bottom ml-4" style={{ minWidth: '240px', height: '120px', verticalAlign: 'bottom', position: 'relative' }}>
                 {rotatingWords.map((word, index) => (
                   <span
                     key={word}
@@ -71,7 +71,7 @@ const Hero = () => {
                       transform: `translateY(${((index - currentIndex + rotatingWords.length) % rotatingWords.length) * 25}%)`,
                       opacity: index === currentIndex ? 1 : 0,
                       willChange: 'transform, opacity',
-                      bottom: '5px',
+                      bottom: '0px',
                       position: 'absolute',
                       left: '0',
                       right: '0',
@@ -83,16 +83,16 @@ const Hero = () => {
                 ))}
               </span>
             </span>
-            <span className="block">
+            <span className="block mt-4 md:mt-0">
               your API docs all in one place
             </span>
           </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-xl text-muted-foreground sm:text-2xl md:text-2xl leading-relaxed">
+          <p className="mt-8 md:mt-6 max-w-3xl mx-auto text-lg md:text-2xl text-muted-foreground leading-relaxed px-4">
             Devscribe boosts your team's efficiency by automating and managing your API documentation with ease.
           </p>
           
           {/* Email Signup Form */}
-          <div className="mt-12 max-w-xl mx-auto">
+          <div className="mt-12 max-w-xl mx-auto px-4">
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="flex-1">
                 <input
@@ -107,7 +107,7 @@ const Hero = () => {
               <div className="rainbow-button">
                 <button
                   type="submit"
-                  className="px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 whitespace-nowrap text-lg font-semibold"
+                  className="w-full sm:w-auto px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 whitespace-nowrap text-lg font-medium"
                 >
                   Get updates
                 </button>
