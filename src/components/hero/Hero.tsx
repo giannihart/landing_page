@@ -88,7 +88,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="mt-8 md:mt-6 max-w-3xl mx-auto text-lg md:text-2xl text-muted-foreground leading-relaxed px-4">
-            Devscribe boosts your team's efficiency by automating and managing your API documentation with ease.
+            Devscribe boosts your team's efficiency by automating and managing your API documentation with ease allowing readability for all.
           </p>
           
           {/* Email Signup Form */}
