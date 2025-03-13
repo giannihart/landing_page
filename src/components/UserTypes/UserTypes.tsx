@@ -46,7 +46,7 @@ const UserTypes = () => {
             >
               <span className={`
                 text-7xl font-black 
-                text-foreground/50
+                text-foreground/100
                 transition-all 
                 duration-500
                 relative
