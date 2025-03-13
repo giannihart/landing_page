@@ -23,79 +23,86 @@ const userTypes = [
 
 const UserTypes = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center py-16 relative">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl mb-4">
-          API docs for every single user
-        </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
-          Our docs are designed to be read by any user, regardless of their role or technical expertise.
-        </p>
+    <div className="relative py-24 bg-background">
+      {/* Background decoration */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
       </div>
-      <div className="flex space-x-24 items-center relative pb-40">
-        {userTypes.map((type, index) => (
-          <div 
-            key={index} 
-            className="group relative cursor-pointer transform transition-all duration-300 hover:-translate-y-4"
-          >
-            <span className={`
-              text-7xl font-black 
-              text-foreground/50
-              transition-all 
-              duration-500
-              relative
-              inline-block
-              bg-clip-text
-              hover:text-transparent
-              bg-[size:400%]
-              animate-text-shimmer
-              ${type.gradientClass}
-              group-hover:drop-shadow-[0_0_20px_rgba(${
-                type.glowColor === 'emerald-400' ? '5,150,105' :
-                type.glowColor === 'blue-400' ? '59,130,246' :
-                type.glowColor === 'pink-400' ? '244,114,182' : '0,0,0'
-              },0.5)]
-              group-hover:scale-110
-              pb-4
-            `}
-            style={{
-              backgroundSize: '200% auto',
-              animation: 'shimmer 3s linear infinite'
-            }}
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl mb-4">
+            API docs for every single user
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
+            Our docs are designed to be read by any user, regardless of their role or technical expertise.
+          </p>
+        </div>
+        <div className="flex justify-center space-x-16 items-center relative pb-40 mx-auto max-w-6xl">
+          {userTypes.map((type, index) => (
+            <div 
+              key={index} 
+              className="group relative cursor-pointer transform transition-all duration-300 hover:-translate-y-4"
             >
-              {type.title}
-            </span>
-            <div className={`
-              absolute 
-              left-1/2 
-              -translate-x-1/2 
-              top-full 
-              mt-6 
-              z-50 
-              opacity-0 
-              group-hover:opacity-100 
-              transition-all 
-              duration-300 
-              ease-in-out
-              bg-black/90
-              backdrop-blur-md 
-              border 
-              border-border 
-              rounded-xl 
-              p-4 
-              text-center 
-              max-w-md 
-              w-[500px]
-              shadow-2xl
-              transform 
-              group-hover:translate-y-2
-            `}>
-              <p className="text-white/80 text-base leading-relaxed">
-                {type.description}
-              </p>
+              <span className={`
+                text-7xl font-black 
+                text-foreground/50
+                transition-all 
+                duration-500
+                relative
+                inline-block
+                bg-clip-text
+                hover:text-transparent
+                bg-[size:400%]
+                animate-text-shimmer
+                ${type.gradientClass}
+                group-hover:drop-shadow-[0_0_20px_rgba(${
+                  type.glowColor === 'emerald-400' ? '5,150,105' :
+                  type.glowColor === 'blue-400' ? '59,130,246' :
+                  type.glowColor === 'pink-400' ? '244,114,182' : '0,0,0'
+                },0.5)]
+                group-hover:scale-110
+                pb-4
+              `}
+              style={{
+                backgroundSize: '200% auto',
+                animation: 'shimmer 3s linear infinite'
+              }}
+              >
+                {type.title}
+              </span>
+              <div className={`
+                absolute 
+                left-1/2 
+                -translate-x-1/2 
+                top-full 
+                mt-6 
+                z-50 
+                opacity-0 
+                group-hover:opacity-100 
+                transition-all 
+                duration-300 
+                ease-in-out
+                bg-black/90
+                backdrop-blur-md 
+                border 
+                border-border 
+                rounded-xl 
+                p-4 
+                text-center 
+                max-w-md 
+                w-[500px]
+                shadow-2xl
+                transform 
+                group-hover:translate-y-2
+              `}>
+                <p className="text-white/80 text-base leading-relaxed">
+                  {type.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
