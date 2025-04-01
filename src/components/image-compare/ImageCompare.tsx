@@ -88,16 +88,16 @@ const ImageCompare: React.FC<ImageCompareProps> = ({
 
         {/* Slider Guide */}
         <div className="mt-6 text-center">
-          <div className="inline-flex items-center justify-center space-x-4">
+          <div className="flex justify-between max-w-4xl mx-auto px-4">
             <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-muted-foreground mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-muted-foreground mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
               </svg>
-              <span className="text-sm text-foreground">Slide left to see Standard Documentation</span>
+              <span className="text-base font-bold text-foreground">Slide left to see Standard Documentation</span>
             </div>
             <div className="flex items-center">
-              <span className="text-sm text-foreground">Slide right to see Devscribe Documentation</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-muted-foreground ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span className="text-base font-bold text-foreground">Slide right to see Devscribe Documentation</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-muted-foreground ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
               </svg>
             </div>
