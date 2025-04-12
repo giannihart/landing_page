@@ -22,16 +22,21 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   const words = text.split(" ");
 
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-[50vh]", className)}>
+    <div ref={targetRef} className={cn("relative z-0 h-[200vh] w-full", className)}>
+      {/* Background decoration */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
+      </div>
+
       <div
         className={
-          "sticky top-0 mx-auto flex h-full max-w-full items-center justify-center bg-transparent px-[1rem] py-[1rem]"
+          "sticky top-0 mx-auto flex h-[50%] max-w-full items-center justify-center bg-transparent px-[1rem] py-24 z-10 relative"
         }
       >
         <p
           ref={targetRef}
           className={
-            "flex flex-wrap justify-center text-center p-2 text-3xl font-bold text-black/20 dark:text-white/20 md:p-4 md:text-4xl lg:p-6 lg:text-5xl xl:text-6xl max-w-[1600px] mx-auto"
+            "flex flex-wrap justify-center text-center p-5 text-3xl font-bold text-black/50 dark:text-white/50 md:p-8 md:text-4xl lg:p-10 lg:text-5xl xl:text-6xl max-w-[1600px] mx-auto z-20 relative"
           }
         >
           {words.map((word, i) => {
@@ -58,7 +63,7 @@ interface WordProps {
 const Word: FC<WordProps> = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
-    <span className="xl:lg-3 relative mx-1 lg:mx-2.5">
+    <span className="xl:lg-3 relative mx-.5 lg:mx-1">
       <span className={"absolute opacity-30"}>{children}</span>
       <motion.span
         style={{ opacity: opacity }}

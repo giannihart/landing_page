@@ -2,7 +2,7 @@ import React from 'react';
 
 const SupportSection = () => {
   return (
-    <section className="relative py-16 bg-background">
+    <section className="relative py-24 bg-background">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background to-background" />

@@ -26,7 +26,7 @@ function App() {
       />
       <TextRevealByWord 
         text="Devscribe saves enterprises millions by automatically transforming repositories into AI-generated API docs in seconds, reducing developer hours by 20-30%."
-        className="bg-background"
+        className="py-24 bg-background"
       />
       <Features />
       <UserTypes />

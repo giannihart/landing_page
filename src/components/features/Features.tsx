@@ -77,7 +77,7 @@ const features = [
 
 const Features = () => {
   return (
-    <div className="relative py-20 md:py-32 bg-background" id="features">
+    <div className="relative py-24 bg-background" id="features">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />

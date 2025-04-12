@@ -44,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-background pt-24 pb-16 md:pt-32 md:pb-20">
+    <div className="relative overflow-hidden bg-background pt-24 pb-24">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background to-background" />
