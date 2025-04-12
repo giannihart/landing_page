@@ -1,6 +1,4 @@
 import React, { useState, useRef } from 'react';
-import BeforeImage from '../../lib/Devscribemain.png';
-import AfterImage from '../../lib/Baddocs.png';
 
 interface ImageCompareProps {
   beforeImage: string;
