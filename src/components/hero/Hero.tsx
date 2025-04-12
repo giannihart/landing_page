@@ -44,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-background pt-24 pb-16 md:pt-32 md:pb-20 hero-container">
+    <div className="relative overflow-hidden bg-background pt-24 pb-16 md:pt-32 md:pb-20">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background to-background" />
@@ -54,15 +54,15 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Announcement Banner */}
-          <div className="mb-8 md:mb-4 inline-flex items-center bg-primary/10 border border-primary/20 rounded-full px-6 py-2 text-sm font-medium text-primary announcement-banner">
+          <div className="mb-8 md:mb-4 inline-flex items-center bg-primary/10 border border-primary/20 rounded-full px-6 py-2 text-sm font-medium text-primary">
             <span className="mr-2">📣</span>
             <span>Version 1.0 will be live 5/31</span>
           </div>
 
-          <h1 className="text-4xl tracking-tight font-extrabold text-foreground sm:text-6xl md:text-7xl leading-tight text-center hero-title">
+          <h1 className="text-4xl tracking-tight font-extrabold text-foreground sm:text-6xl md:text-7xl leading-tight text-center">
             <span className="block mb-3 md:mb-2 relative">
               <span>Instantly</span>
-              <span className="relative inline-block overflow-visible align-bottom ml-4 rotating-words-container" style={{ minWidth: '240px', height: '120px', verticalAlign: 'bottom', position: 'relative' }}>
+              <span className="relative inline-block overflow-visible align-bottom ml-4" style={{ minWidth: '240px', height: '120px', verticalAlign: 'bottom', position: 'relative' }}>
                 {rotatingWords.map((word, index) => (
                   <span
                     key={word}
@@ -88,14 +88,14 @@ const Hero = () => {
               your API docs all in one place
             </span>
           </h1>
-          <p className="mt-8 md:mt-6 max-w-3xl mx-auto text-lg md:text-2xl text-muted-foreground leading-relaxed px-4 hero-subtitle">
+          <p className="mt-8 md:mt-6 max-w-3xl mx-auto text-lg md:text-2xl text-muted-foreground leading-relaxed px-4">
             Devscribe boosts your team's efficiency by automating and managing your API documentation with ease allowing readability for all.
           </p>
           
           {/* Email Signup Form */}
           <div className="mt-12 max-w-xl mx-auto px-4">
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center hero-form">
-              <div className="flex-1 hero-form-input">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex-1">
                 <input
                   type="email"
                   value={email}
@@ -105,7 +105,7 @@ const Hero = () => {
                   className="w-full px-6 py-3 rounded-lg bg-secondary text-secondary-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300 hover:outline hover:outline-2 hover:outline-white text-lg"
                 />
               </div>
-              <div className="rainbow-button hero-form-button">
+              <div className="rainbow-button">
                 <button
                   type="submit"
                   className="w-full sm:w-auto px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 whitespace-nowrap text-lg font-medium"
