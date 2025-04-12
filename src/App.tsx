@@ -9,6 +9,7 @@ import UserTypes from './components/UserTypes/UserTypes';
 import Footer from './components/footer/Footer';
 import ImageCompare from './components/image-compare/ImageCompare';
 import SupportSection from './components/Collaboration /SupportSection';
+import { TextRevealByWord } from './components/text-reveal/TextRevealByWord';
 
 // Import placeholder images
 import BeforeImage from './lib/Devscribemain.png';
@@ -22,6 +23,10 @@ function App() {
       <ImageCompare 
         beforeImage={BeforeImage} 
         afterImage={AfterImage}
+      />
+      <TextRevealByWord 
+        text="Devscribe saves enterprises millions by automatically transforming repositories into AI-generated API docs in seconds, reducing developer hours by 20-30%."
+        className="bg-background"
       />
       <Features />
       <UserTypes />
