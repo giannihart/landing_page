@@ -77,7 +77,7 @@ const features = [
 
 const Features = () => {
   return (
-    <div className="relative py-20 md:py-32 bg-background" id="features">
+    <div className="relative py-20 md:py-32 bg-background features-container" id="features">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
@@ -85,36 +85,31 @@ const Features = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl features-title">
             Features that excite all users
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground features-subtitle">
             Everything you need to manage and showcase your API docs to grow your business.
           </p>
         </div>
 
-        <div className="mt-20">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="relative group bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-                <div className="relative">
-                  <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    {feature.icon}
-                  </div>
-                  <h3 className="mt-6 text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 text-base text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </div>
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 features-grid">
+          {features.map((feature, index) => (
+            <div 
+              key={index} 
+              className="bg-card/50 border border-border rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(var(--primary),0.2)]"
+            >
+              <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-primary/10">
+                {feature.icon}
               </div>
-            ))}
-          </div>
+              <h3 className="text-xl font-semibold text-foreground mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-base text-muted-foreground">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -19,7 +19,9 @@ const SupportSection = () => {
           </p>
           <div className="mt-8">
             <a
-              href="https://shadcnblocks.com"
+              href="https://app.apollo.io/#/meet/inbound-router/0un-0oc-9vs"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors duration-300"
             >
               Contact us today

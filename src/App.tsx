@@ -11,8 +11,8 @@ import ImageCompare from './components/image-compare/ImageCompare';
 import SupportSection from './components/Collaboration /SupportSection';
 
 // Import placeholder images
-import BeforeImage from './lib/UIDash.png';
-import AfterImage from './lib/UIUgly.png';
+import BeforeImage from './lib/Devscribemain.png';
+import AfterImage from './lib/Baddocs.png';
 
 function App() {
   return (
