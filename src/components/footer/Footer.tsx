@@ -1,5 +1,6 @@
 import React from 'react';
 import GroupImage from '../../lib/Group 19.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -45,9 +46,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/careers" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/careers" className="text-base text-muted-foreground hover:text-foreground transition-colors">
                   Careers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GroupImage from '../../lib/Group 19.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,9 +33,9 @@ const Navbar = () => {
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
               Pricing
             </a>
-            <a href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
               Careers
-            </a>
+            </Link>
             <button 
               onClick={() => window.open('https://app.apollo.io/#/meet/al2-p3j-wax/Devscribedemo', '_blank')} 
               className="bg-primary text-primary-foreground px-6 py-2 rounded-[30px] hover:bg-primary/90 transition-all duration-300"
@@ -81,9 +82,9 @@ const Navbar = () => {
             <a href="#pricing" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
               Pricing
             </a>
-            <a href="/careers" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
+            <Link to="/careers" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
               Careers
-            </a>
+            </Link>
             <button 
               onClick={() => window.open('https://app.apollo.io/#/meet/al2-p3j-wax/Devscribedemo', '_blank')} 
               className="w-full text-left px-6 py-2 rounded-lg text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300"
