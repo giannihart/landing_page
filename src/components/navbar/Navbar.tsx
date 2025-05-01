@@ -20,14 +20,20 @@ const Navbar = () => {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center md:space-x-8">
+            <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">
+              Home
+            </a>
             <a href="#product" className="text-muted-foreground hover:text-foreground transition-colors">
               Product
             </a>
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
               Features
             </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
-              Contact
+            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              Pricing
+            </a>
+            <a href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
+              Careers
             </a>
             <button 
               onClick={() => window.open('https://app.apollo.io/#/meet/al2-p3j-wax/Devscribedemo', '_blank')} 
@@ -63,14 +69,20 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-sm">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="/" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
+              Home
+            </a>
             <a href="#product" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
               Product
             </a>
             <a href="#features" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
               Features
             </a>
-            <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
-              Contact
+            <a href="#pricing" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
+              Pricing
+            </a>
+            <a href="/careers" className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent">
+              Careers
             </a>
             <button 
               onClick={() => window.open('https://app.apollo.io/#/meet/al2-p3j-wax/Devscribedemo', '_blank')} 

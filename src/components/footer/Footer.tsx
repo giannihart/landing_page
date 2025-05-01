@@ -25,6 +25,11 @@ const Footer = () => {
           <div className="md:mt-0">
             <ul className="flex flex-wrap gap-6 justify-center md:justify-end">
               <li>
+                <a href="/" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                  Home
+                </a>
+              </li>
+              <li>
                 <a href="#product" className="text-base text-muted-foreground hover:text-foreground transition-colors">
                   Product
                 </a>
@@ -35,9 +40,14 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <button className="text-base text-muted-foreground hover:text-foreground transition-colors">
-                  Contact
-                </button>
+                <a href="#pricing" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a href="/careers" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                  Careers
+                </a>
               </li>
             </ul>
           </div>

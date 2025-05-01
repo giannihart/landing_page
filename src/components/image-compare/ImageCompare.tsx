@@ -30,22 +30,24 @@ const ImageCompare: React.FC<ImageCompareProps> = ({
         >
           {/* Before Image */}
           <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-top" 
+            className="absolute inset-0 w-full h-full bg-cover" 
             style={{ 
               backgroundImage: `url(${beforeImage})`,
-              backgroundPosition: 'top left',
+              backgroundPosition: '0% 0%',
               backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
               clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`
             }}
           />
 
           {/* After Image */}
           <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-top" 
+            className="absolute inset-0 w-full h-full bg-cover" 
             style={{ 
               backgroundImage: `url(${afterImage})`,
-              backgroundPosition: 'top left',
+              backgroundPosition: '0% 0%',
               backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
               clipPath: `polygon(${sliderPosition}% 0, 100% 0, 100% 100%, ${sliderPosition}% 100%)`
             }}
           />

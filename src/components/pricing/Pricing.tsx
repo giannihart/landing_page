@@ -1,29 +1,18 @@
-import React, { useState } from 'react';
-
-interface TeamSize {
-  size: number;
-  multiplier: number;
-}
+import React from 'react';
 
 interface BasePlan {
-  name: 'Personal' | 'Startup' | 'Professional' | 'Enterprise';
+  name: 'Startup' | 'Enterprise';
   description: string;
+  additionalDescription: string;
   features: string[];
   cta: string;
   popular: boolean;
 }
 
-interface StandardPlan extends BasePlan {
-  name: 'Personal';
-  monthlyPrice: string;
-  yearlyPrice: string;
-}
-
 interface TeamPlan extends BasePlan {
-  name: 'Startup' | 'Professional';
+  name: 'Startup';
   baseMonthlyPrice: number;
   baseYearlyPrice: number;
-  teamSizes: TeamSize[];
 }
 
 interface EnterprisePlan extends BasePlan {
@@ -32,73 +21,33 @@ interface EnterprisePlan extends BasePlan {
   yearlyPrice: string;
 }
 
-type Plan = StandardPlan | TeamPlan | EnterprisePlan;
+type Plan = TeamPlan | EnterprisePlan;
 
 const plans: Plan[] = [
   {
-    name: 'Personal',
-    monthlyPrice: '$0',
-    yearlyPrice: '$0',
-    description: 'Perfect for getting started',
-    features: [
-      'Single user',
-      'Custom domain',
-      'Text editor',
-      'Github integration',
-      'API testing playground',
-      'Basic themes',
-      'Example code snippets',
-    ],
-    cta: 'Get Started Free',
-    popular: false,
-  },
-  {
     name: 'Startup',
-    baseMonthlyPrice: 180,
-    baseYearlyPrice: 150,
-    teamSizes: [
-      { size: 5, multiplier: 1 },
-      { size: 10, multiplier: 1.417 },
-      { size: 15, multiplier: 1.833 },
-    ],
+    baseMonthlyPrice: 0,
+    baseYearlyPrice: 0,
     description: 'Great for small teams and startups',
+    additionalDescription: 'Automate your API docs workflow for free until you raise a Seed Round.',
     features: [
-      'Everything in Personal +',
       'Documentation generation',
       'Custom Branding',
       'Chat assist search',
       'Basic analytics',
+      'Github integration',
+      'API testing playground',
     ],
     cta: 'Start with Startup',
     popular: false,
-  },
-  {
-    name: 'Professional',
-    baseMonthlyPrice: 650,
-    baseYearlyPrice: 550,
-    teamSizes: [
-      { size: 20, multiplier: 1 },
-      { size: 30, multiplier: 1.4 },
-      { size: 40, multiplier: 1.8 },
-    ],
-    description: 'Ideal for growing businesses',
-    features: [
-      'Everything in Startup +',
-      'Removed Devscribed branding',
-      'Priority email & chat support',
-      'Increased chat assist credits',
-      'Advanced analytics',
-    ],
-    cta: 'Go Professional',
-    popular: true,
   },
   {
     name: 'Enterprise',
     monthlyPrice: 'Custom Pricing',
     yearlyPrice: 'Custom Pricing',
     description: 'For large organizations',
+    additionalDescription: 'Start paying and customize your solution when you\'ve grown beyond your seed funding. Pricing tailored to your company\'s specific needs and scale.',
     features: [
-      'Everything in Professional +',
       'Unlimited team members',
       'End user authentication',
       'Custom analytics',
@@ -114,30 +63,12 @@ const plans: Plan[] = [
 ];
 
 const Pricing = () => {
-  const [isYearly, setIsYearly] = useState(false);
-  const [selectedTeamSizes, setSelectedTeamSizes] = useState({
-    Startup: 5,
-    Professional: 20,
-  });
-
   const getPrice = (plan: Plan): string => {
-    if (plan.name === 'Personal' || plan.name === 'Enterprise') {
-      return isYearly ? plan.yearlyPrice : plan.monthlyPrice;
+    if (plan.name === 'Enterprise') {
+      return 'Custom Pricing';
     }
 
-    const teamPlan = plan as TeamPlan;
-    const selectedSize = teamPlan.teamSizes.find(
-      (option) => option.size === selectedTeamSizes[plan.name]
-    );
-    const basePrice = isYearly ? teamPlan.baseYearlyPrice : teamPlan.baseMonthlyPrice;
-    return `$${Math.round(basePrice * (selectedSize?.multiplier || 1))}`;
-  };
-
-  const handleTeamSizeChange = (planName: 'Startup' | 'Professional', size: number) => {
-    setSelectedTeamSizes((prev) => ({
-      ...prev,
-      [planName]: size,
-    }));
+    return '$0';
   };
 
   return (
@@ -153,29 +84,11 @@ const Pricing = () => {
             Simple, transparent pricing
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
-            Choose the perfect plan for your business needs
+            Free for startups, custom solutions for enterprises
           </p>
-          
-          {/* Billing Toggle */}
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <span className={`text-sm ${!isYearly ? 'text-foreground' : 'text-muted-foreground'}`}>Monthly</span>
-            <button
-              onClick={() => setIsYearly(!isYearly)}
-              className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-secondary"
-            >
-              <span
-                className={`${
-                  isYearly ? 'translate-x-6' : 'translate-x-1'
-                } inline-block h-4 w-4 transform rounded-full bg-primary transition-transform`}
-              />
-            </button>
-            <span className={`text-sm ${isYearly ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Yearly <span className="text-primary font-medium">(Save up to 15%)</span>
-            </span>
-          </div>
         </div>
 
-        <div className="mt-20 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-6">
+        <div className="mt-20 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-6 lg:max-w-4xl lg:mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -199,44 +112,20 @@ const Pricing = () => {
                 </h3>
 
                 <p className={`mt-4 flex items-baseline ${plan.popular ? 'text-primary' : 'text-foreground'}`}>
-                  <span className={`${plan.name === 'Enterprise' ? 'text-3xl' : 'text-5xl'} font-extrabold tracking-tight`}>
+                  <span className={`text-5xl font-extrabold tracking-tight`}>
                     {getPrice(plan)}
                   </span>
-                  <span className={`ml-1 ${plan.name === 'Enterprise' ? 'text-3xl text-foreground font-extrabold' : 'text-xl text-muted-foreground font-semibold'}`}>
+                  <span className={`ml-1 text-xl text-muted-foreground font-semibold`}>
                     {plan.name === 'Enterprise' ? '' : '/month'}
                   </span>
                 </p>
-                
-                {/* Team Size Selector */}
-                {(plan.name === 'Startup' || plan.name === 'Professional') && (
-                  <div className="mt-4">
-                    <label className="text-sm text-muted-foreground">Team Size:</label>
-                    <div className="mt-2 flex gap-2">
-                      {plan.teamSizes.map((option) => (
-                        <button
-                          key={option.size}
-                          onClick={() => handleTeamSizeChange(plan.name, option.size)}
-                          className={`px-3 py-1 rounded-md text-sm transition-all ${
-                            selectedTeamSizes[plan.name] === option.size
-                              ? 'bg-primary text-primary-foreground'
-                              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                          }`}
-                        >
-                          {option.size} users
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {(plan.name === 'Startup' || plan.name === 'Professional') && (
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Up to {selectedTeamSizes[plan.name]} team members
-                  </p>
-                )}
 
                 <p className="mt-6 text-base text-muted-foreground">
                   {plan.description}
+                </p>
+
+                <p className="mt-2 text-base text-muted-foreground italic">
+                  {plan.additionalDescription}
                 </p>
 
                 <ul className="mt-6 space-y-4">
